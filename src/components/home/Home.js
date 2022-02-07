@@ -1,9 +1,12 @@
 import React from "react";
 import "./Home.css";
+import FoodImages from "../food-images/FoodImages";
 
 const Home = () => {
     return (
-        <h1>Home.js</h1>
+        <div>
+            <FoodImages />
+        </div>
     );
 };
 
