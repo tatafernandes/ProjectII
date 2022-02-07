@@ -3,7 +3,7 @@ import "./FoodImages.css";
 
 const FoodImages = () => {
     return (
-        <h1>FoodImages.js</h1>
+        <h2>FoodImages.js</h2>
     );
 };
 

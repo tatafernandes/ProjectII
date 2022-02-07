@@ -1,12 +1,16 @@
 import React from "react";
 import "./FoodsList.css";
 import { useLocation } from "react-router-dom";
+import FoodCard from "../food-card/FoodCard";
 
 const FoodsList = () => {
     const { pathname } = useLocation();
 
     return (
-        <h1>FoodsList.js - {pathname}</h1>
+        <div>
+            <h1>FoodsList.js - {pathname}</h1>
+            <FoodCard />
+        </div>
     );
 };
 

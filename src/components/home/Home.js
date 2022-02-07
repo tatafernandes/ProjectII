@@ -6,6 +6,7 @@ import About from "../about/About";
 const Home = () => {
     return (
         <div>
+            <h1>Home.js</h1>
             <FoodImages />
             <About />
         </div>
