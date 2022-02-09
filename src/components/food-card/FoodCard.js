@@ -1,9 +1,12 @@
 import React from "react";
 import "./FoodCard.css";
+import { Link } from "react-router-dom";
 
 const FoodCard = ( {strMeal} ) => {
     return (
-        <h2>{strMeal}</h2>
+        <Link to="./../../food-recipe">
+            <h2>{strMeal}</h2>
+        </Link>
     );
 };
 
