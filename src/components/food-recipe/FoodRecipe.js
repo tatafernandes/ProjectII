@@ -1,9 +1,12 @@
 import React from "react";
 import "./FoodRecipe.css";
+import { useParams } from "react-router-dom";
 
 const FoodRecipe = () => {
+    const { idRecipe } = useParams();
+
     return (
-        <h1>FoodRecipe.js</h1>
+        <h1>FoodRecipe.js {idRecipe}</h1>
     );
 };
 
