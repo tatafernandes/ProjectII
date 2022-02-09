@@ -18,29 +18,24 @@ class FoodsApi {
     };
     getMainCourse = async () => {
         try {            
-            const { data: { meals: beef } } = await this.api.get("/filter.php?c=Beef");
-            const { data: { meals: chicken } } = await this.api.get("/filter.php?c=Chicken");
-            const { data: { meals: lamb } } = await this.api.get("/filter.php?c=Lamb");
-            const { data: { meals: miscellaneous } } = await this.api.get("/filter.php?c=Miscellaneous");
-            const { data: { meals: pasta } } = await this.api.get("/filter.php?c=Pasta");
-            const { data: { meals: pork } } = await this.api.get("/filter.php?c=Pork");
-            const { data: { meals: seafood } } = await this.api.get("/filter.php?c=Seafood");
-            const { data: { meals: vegan } } = await this.api.get("/filter.php?c=Vegan");
-            const { data: { meals: vegetarian } } = await this.api.get("/filter.php?c=Vegetarian");
-            const { data: { meals: goat } } = await this.api.get("/filter.php?c=Goat");
-
-            const mainCourse = [
-                ...beef,
-                ...chicken,
-                ...lamb,
-                ...miscellaneous,
-                ...pasta,
-                ...pork,
-                ...seafood,
-                ...vegan,
-                ...vegetarian,
-                ...goat
+            const categories = [
+                "Beef",
+                "Chicken",
+                "Lamb",
+                "Miscellaneous",
+                "Pasta",
+                "Pork",
+                "Seafood",
+                "Vegan",
+                "Vegetarian",
+                "Goat"
             ];
+
+            const mainCourse = [];
+            for (let i = 0; i < categories.length; i += 1) {
+                const { data: { meals } } = await this.api.get(`/filter.php?c=${categories[i]}`)
+                mainCourse.push(...meals);
+            };
 
             return mainCourse;
         } catch {
