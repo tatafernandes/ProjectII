@@ -4,10 +4,12 @@ import { Link } from "react-router-dom";
 
 const FoodCard = ( {idMeal, strMealThumb, strMeal} ) => {
     return (
-        <Link to={`./../../food-recipe/${idMeal}`}>
-            <img src={strMealThumb} alt={strMeal} />
-            <figcaption>{strMeal}</figcaption>
-        </Link>
+        <div className="foodCard">
+            <Link to={`./../../food-recipe/${idMeal}`}>
+                <img src={strMealThumb} alt={strMeal} />
+                <figcaption>{strMeal}</figcaption>
+            </Link>
+        </div>
     );
 };
 
