@@ -42,6 +42,16 @@ class FoodsApi {
             throw new Error("Cannot Fetch MainCourse");
         };
     };
+    getFoods = id => {
+        switch (id) {
+            case "main-course":
+                return this.getMainCourse();;
+            case "dessert":
+                return this.getDessert();
+            default:
+                console.log("Wrong pathname");
+        };
+    };
 };
 
 const foodsApi = new FoodsApi();
@@ -51,7 +61,7 @@ const FoodsList = () => {
     const idFoodsList = pathname.split("/").slice(2)[0];
     const [foodCards, setFoodCards] = useState([]);
     
-    useEffect(() => (async () => setFoodCards(await foodsApi.getMainCourse()))(), [idFoodsList]);
+    useEffect(() => (async () => setFoodCards(await foodsApi.getFoods(idFoodsList)))(), [idFoodsList]);
 
     return (
         <div>
