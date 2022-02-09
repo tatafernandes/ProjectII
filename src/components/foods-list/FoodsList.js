@@ -64,10 +64,8 @@ const FoodsList = () => {
     useEffect(() => (async () => setFoodCards(await foodsApi.getFoods(idFoodsList)))(), [idFoodsList]);
 
     return (
-        <div>
-            <h1>FoodsList.js - {idFoodsList}</h1>
-            {foodCards.map(foodCard => <h2 key={foodCard.idMeal}>{foodCard.strMeal}</h2>)}
-            <FoodCard />
+        <div id="foodsList">
+            {foodCards.map(foodCard => <FoodCard key={foodCard.idMeal} {...foodCard} />)}
         </div>
     );
 };

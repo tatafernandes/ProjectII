@@ -1,9 +1,9 @@
 import React from "react";
 import "./FoodCard.css";
 
-const FoodCard = () => {
+const FoodCard = ( {strMeal} ) => {
     return (
-        <h2>FoodCard.js</h2>
+        <h2>{strMeal}</h2>
     );
 };
 
