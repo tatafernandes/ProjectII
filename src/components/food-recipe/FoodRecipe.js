@@ -18,13 +18,13 @@ class FoodsApi {
     };
 };
 
-const foodApi = new FoodsApi();
+const foodsApi = new FoodsApi();
 
 const FoodRecipe = () => {
     const { idRecipe } = useParams();
     const [recipe, setRecipe] = useState({});
 
-    useEffect(() => (async () => setRecipe(await foodApi.getRecipe(idRecipe)))(), [idRecipe]);
+    useEffect(() => (async () => setRecipe(await foodsApi.getRecipe(idRecipe)))(), [idRecipe]);
     console.log(recipe);
 
     return (
