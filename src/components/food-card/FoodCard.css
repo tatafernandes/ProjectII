@@ -1,0 +1,23 @@
+.foodCard {
+    width: 250px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22);
+    margin: 20px;
+    transition: all 0.3s ease-out;
+}
+
+.foodCard:hover {
+    transform: translateY(-5px);
+    cursor: pointer;
+}
+
+.foodCard img {
+    width: 250px;
+    border-radius: 8px;
+}
+
+.foodCard figcaption {
+    color: #a3a5ae;
+    font-size: 16px;
+}
