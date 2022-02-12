@@ -1,9 +1,9 @@
 .navbar-style {
 
     display:flex;
-    justifyContent:space-between;
+    justify-content:space-between;
     height:40px;
-    backgroundColor:yellow;
+    background-colorgit:yellow;
     margin-right: 65px;
     align-items: center;
     }
