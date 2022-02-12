@@ -42,7 +42,7 @@ const Ingredients = ({ idRecipe }) => {
         <div>
             <h2>Ingredients</h2>
             <ul>
-                {ingredients.map((ingredient, i) => <li key={ingredient.id}>{ingredient.text}</li>)}
+                {ingredients.map(ingredient => <li key={ingredient.id}>{ingredient.text}</li>)}
             </ul>
         </div>
     );
