@@ -27,7 +27,9 @@ const FoodRecipe = () => {
 
     useEffect(() => (async () => setRecipe(await foodsApi.getRecipe(idRecipe)))(), [idRecipe]);
 
-    console.log(recipe);
+    if (recipe.strMeal) {
+        console.log(recipe);
+    };
 
     return (
         <div>

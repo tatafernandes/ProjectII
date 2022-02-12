@@ -24,7 +24,7 @@ class FoodsApi {
 
             return ingredients1;
         } catch (error) {
-            throw new Error(`Cannot Fetch Recipe => ${error}`);
+            throw new Error(`Cannot Fetch Ingredients => ${error}`);
         };
     };
 };
@@ -36,7 +36,9 @@ const Ingredients = ({ idRecipe }) => {
 
     useEffect(() => (async () => setIngredients(await foodsApi.getIngredients(idRecipe)))(), [idRecipe]);
 
-    console.log(ingredients);
+    if (ingredients.length > 0) {
+        console.log(ingredients);
+    };
 
     return (
         <div>
