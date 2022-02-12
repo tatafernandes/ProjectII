@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./FoodsList.css";
 import axios from "axios";
-import { useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import FoodCard from "../food-card/FoodCard";
 
 class FoodsApi {
@@ -57,11 +57,10 @@ class FoodsApi {
 const foodsApi = new FoodsApi();
 
 const FoodsList = () => {
-    const { pathname } = useLocation();
-    const idFoodsList = pathname.split("/").slice(2)[0];
+    const { idList } = useParams();
     const [foodCards, setFoodCards] = useState([]);
     
-    useEffect(() => (async () => setFoodCards(await foodsApi.getFoods(idFoodsList)))(), [idFoodsList]);
+    useEffect(() => (async () => setFoodCards(await foodsApi.getFoods(idList)))(), [idList]);
 
     return (
         <div id="foodsList">
