@@ -40,7 +40,7 @@ const FoodRecipe = () => {
             </div>
             <div>
                 <h2>Instructions</h2>
-                <p>{recipe.strInstructions}</p>
+                <pre>{recipe.strInstructions}</pre>
             </div>
         </div>
     );
