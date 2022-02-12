@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Instructions.css";
 import axios from "axios";
+import ReactPlayer from "react-player/youtube";
 
 class FoodsApi {
     constructor () {
@@ -21,7 +22,7 @@ class FoodsApi {
 
 const foodsApi = new FoodsApi();
 
-const Instructions = ({ idRecipe }) => {
+const Instructions = ({ idRecipe, strYoutube }) => {
     const [instructions, setInstructions] = useState([]);
 
     useEffect(() => (async () => setInstructions(await foodsApi.getInstructions(idRecipe)))(), [idRecipe]);
@@ -34,6 +35,7 @@ const Instructions = ({ idRecipe }) => {
         <div>
             <h2>Instructions</h2>
             {instructions.map(instruction => <p key={instruction.id}>&emsp;{instruction.paragraph}</p>)}
+            <ReactPlayer url={strYoutube} controls={true} />
         </div>
     );
 };

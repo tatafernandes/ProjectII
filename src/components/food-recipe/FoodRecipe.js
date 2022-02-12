@@ -41,7 +41,7 @@ const FoodRecipe = () => {
                     <Ingredients idRecipe={idRecipe} />
                 </div>
             </div>
-            <Instructions idRecipe={idRecipe} />
+            <Instructions idRecipe={idRecipe} strYoutube={recipe.strYoutube} />
         </div>
     );
 };
