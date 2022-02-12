@@ -10,11 +10,9 @@ class FoodsApi {
         try {
             const { data: { meals } } = await this.api.get(`/lookup.php?i=${id}`);
 
-            const instructions1 = await meals[0].strInstructions.split(/\r?\n/)
+            return await meals[0].strInstructions.split(/\r?\n/)
                 .filter(instruction => instruction !== "")
                     .map((instruction, i) => {return { id: i + 1, paragraph: instruction }});
-
-            return instructions1;
         } catch (error) {
             throw new Error(`Cannot Fetch Instructions => ${error}`);
         };
@@ -35,7 +33,7 @@ const Instructions = ({ idRecipe }) => {
     return (
         <div>
             <h2>Instructions</h2>
-            {instructions.map(instruction => <p key={instruction.id}>{instruction.paragraph}</p>)}
+            {instructions.map(instruction => <p key={instruction.id}>&emsp;{instruction.paragraph}</p>)}
         </div>
     );
 };
