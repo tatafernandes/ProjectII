@@ -27,10 +27,6 @@ const Instructions = ({ idRecipe, strYoutube }) => {
 
     useEffect(() => (async () => setInstructions(await foodsApi.getInstructions(idRecipe)))(), [idRecipe]);
 
-    if (instructions.length > 0) {
-        console.log(instructions);
-    };
-
     return (
         <div>
             <h2>Instructions</h2>

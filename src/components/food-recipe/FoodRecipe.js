@@ -28,19 +28,15 @@ const FoodRecipe = () => {
 
     useEffect(() => (async () => setRecipe(await foodsApi.getRecipe(idRecipe)))(), [idRecipe]);
 
-    if (recipe.strMeal) {
-        console.log(recipe);
-    };
-
     return (
-        <div>
-            <div>
+        <div id="recipe">
+            <section id="section">
                 <img src={recipe.strMealThumb} alt={recipe.strMeal} />
                 <div>
                     <h1>{recipe.strMeal}</h1>
                     <Ingredients idRecipe={idRecipe} />
                 </div>
-            </div>
+            </section>
             <Instructions idRecipe={idRecipe} strYoutube={recipe.strYoutube} />
         </div>
     );

@@ -36,12 +36,8 @@ const Ingredients = ({ idRecipe }) => {
 
     useEffect(() => (async () => setIngredients(await foodsApi.getIngredients(idRecipe)))(), [idRecipe]);
 
-    if (ingredients.length > 0) {
-        console.log(ingredients);
-    };
-
     return (
-        <div>
+        <div id="ingredients">
             <h2>Ingredients</h2>
             <ul>
                 {ingredients.map(ingredient => <li key={ingredient.id}>{ingredient.text}</li>)}
