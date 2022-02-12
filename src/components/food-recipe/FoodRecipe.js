@@ -26,6 +26,7 @@ const FoodRecipe = () => {
     const [recipe, setRecipe] = useState({});
 
     useEffect(() => (async () => setRecipe(await foodsApi.getRecipe(idRecipe)))(), [idRecipe]);
+
     console.log(recipe);
 
     return (

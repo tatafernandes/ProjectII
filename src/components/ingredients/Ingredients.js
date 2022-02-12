@@ -18,7 +18,7 @@ class FoodsApi {
                 const notNull = (measure !== null) && (ingredient !== null);
 
                 if (notEmpty && notNull) {
-                    ingredients1.push(`${measure} ${ingredient.toLowerCase()}`)
+                    ingredients1.push({id: i, text: `${measure} ${ingredient.toLowerCase()}`})
                 };
             };
 
@@ -35,13 +35,14 @@ const Ingredients = ({ idRecipe }) => {
     const [ingredients, setIngredients] = useState([]);
 
     useEffect(() => (async () => setIngredients(await foodsApi.getIngredients(idRecipe)))(), [idRecipe]);
+
     console.log(ingredients);
 
     return (
         <div>
             <h2>Ingredients</h2>
             <ul>
-                {ingredients.map((ingredient, i) => <li key={i}>{ingredient}</li>)}
+                {ingredients.map((ingredient, i) => <li key={ingredient.id}>{ingredient.text}</li>)}
             </ul>
         </div>
     );
