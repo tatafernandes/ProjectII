@@ -3,6 +3,7 @@ import "./FoodRecipe.css";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import Ingredients from "../ingredients/Ingredients";
+import Instructions from "../instructions/Instructions";
 
 class FoodsApi {
     constructor () {
@@ -40,10 +41,7 @@ const FoodRecipe = () => {
                     <Ingredients idRecipe={idRecipe} />
                 </div>
             </div>
-            <div>
-                <h2>Instructions</h2>
-                <pre>{recipe.strInstructions}</pre>
-            </div>
+            <Instructions idRecipe={idRecipe} />
         </div>
     );
 };

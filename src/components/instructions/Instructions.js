@@ -29,7 +29,10 @@ const Instructions = ({ idRecipe }) => {
     };
 
     return (
-        <h2>Instructions.js</h2>
+        <div>
+            <h2>Instructions</h2>
+            <p>{instructions}</p>
+        </div>
     );
 };
 
