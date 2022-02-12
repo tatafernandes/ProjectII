@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./FoodRecipe.css";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import Ingredients from "../ingredients/Ingredients";
 
 class FoodsApi {
     constructor () {
@@ -33,10 +34,7 @@ const FoodRecipe = () => {
                 <img src={recipe.strMealThumb} alt={recipe.strMeal} />
                 <div>
                     <h1>{recipe.strMeal}</h1>
-                    <h2>Ingredients</h2>
-                    <ul>
-                        <li>{recipe.strMeasure1} {recipe.strIngredient1}</li>
-                    </ul>
+                    <Ingredients idRecipe={idRecipe} />
                 </div>
             </div>
             <div>
