@@ -22,15 +22,28 @@ const foodApi = new FoodsApi();
 
 const FoodRecipe = () => {
     const { idRecipe } = useParams();
-    const [recipe, setRecipe] = useState([]);
+    const [recipe, setRecipe] = useState({});
 
     useEffect(() => (async () => setRecipe(await foodApi.getRecipe(idRecipe)))(), [idRecipe]);
     console.log(recipe);
 
     return (
-        <>
-            {recipe.strMeal}
-        </>
+        <div>
+            <div>
+                <img src={recipe.strMealThumb} alt={recipe.strMeal} />
+                <div>
+                    <h1>{recipe.strMeal}</h1>
+                    <h2>Ingredients</h2>
+                    <ul>
+                        <li>{recipe.strMeasure1} {recipe.strIngredient1}</li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <h2>Instructions</h2>
+                <p>{recipe.strInstructions}</p>
+            </div>
+        </div>
     );
 };
 
