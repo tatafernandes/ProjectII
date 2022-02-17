@@ -28,9 +28,9 @@ const Categories = () => {
     console.log(categories);
 
     return (
-        <>
-            <Carousel strCategory={"nome"} />
-        </>
+        <div>
+            {categories.map(category => <Carousel {...category} />)}
+        </div>
     );
 };
 
