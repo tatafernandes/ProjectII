@@ -30,7 +30,7 @@ const Categories = () => {
 
     return (
         <div>
-            {categories.map(category => <Carousel {...category} />)}
+            {categories.map(category => <Carousel key={category.idCategory} {...category} />)}
         </div>
     );
 };
