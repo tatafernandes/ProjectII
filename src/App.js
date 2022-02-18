@@ -5,6 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from './components/home/Home';
 import FoodsList from './components/foods-list/FoodsList';
 import FoodRecipe from './components/food-recipe/FoodRecipe';
+import Categories from './pages/categories/Categories';
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
         <Route exact path="/" element={ <Home /> } />
         <Route exact path="/foods-list/:idList" element={ <FoodsList /> } />
         <Route exact path="/food-recipe/:idRecipe" element={ <FoodRecipe /> } />
+        <Route exact path='/food-carousel' element={ <Categories /> } />
       </Routes>
     </>
   );
