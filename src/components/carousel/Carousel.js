@@ -1,8 +1,27 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Carousel.css"
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+import axios from "axios";
 import Slider from "react-slick";
+
+class FoodsApi {
+    constructor () {
+        this.api = axios.create({ baseURL: "https://www.themealdb.com/api/json/v1/1" });
+    }
+
+    getByCategory = async category => {
+        try {
+            const { data: { meals } } = await this.api.get(`/filter.php?c=${category}`)
+
+            return meals;
+        } catch (error) {
+            throw new Error(`Cannot Fetch ${category} => ${error}`);
+        }
+    }
+}
+
+const foodsApi = new FoodsApi();
 
 const Carousel = ( {strCategory} ) => {
     const settings = {
@@ -39,6 +58,12 @@ const Carousel = ( {strCategory} ) => {
             }
         ]
     };
+
+    const [foods, setFoods] = useState([]);
+
+    useEffect(() => (async () => setFoods(await foodsApi.getByCategory(strCategory)))(), [strCategory]);
+
+    console.log(foods);
 
     return (
         <div>
