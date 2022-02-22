@@ -26,11 +26,9 @@ const Categories = () => {
 
     useEffect(() => (async () => setCategories(await foodsApi.getCategories()))(), []);
 
-    console.log(categories);
-
     return (
         <div>
-            {categories.map(category => <Carousel key={category.idCategory} {...category} />)}
+            {categories.map(category => <Carousel key={category.idCategory} strCategory={category.strCategory} />)}
         </div>
     );
 };
