@@ -3,6 +3,7 @@ import "./Carousel.css"
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import axios from "axios";
+import FoodCard from "../food-card/FoodCard";
 import Slider from "react-slick";
 
 class FoodsApi {
@@ -63,13 +64,11 @@ const Carousel = ( {strCategory} ) => {
 
     useEffect(() => (async () => setFoods(await foodsApi.getByCategory(strCategory)))(), [strCategory]);
 
-    console.log(foods);
-
     return (
         <div>
             <h2>{strCategory}</h2>
             <Slider {...settings}>
-                {[1, 2, 3, 4, 5, 6, 7, 8].map(number => <p key={number}>{number}</p>)}
+                {foods.map(food => <FoodCard key={food.idMeal} {...food} />)}
             </Slider>
         </div>
     );
