@@ -3,8 +3,9 @@ import "./Carousel.css"
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import axios from "axios";
-import FoodCard from "../food-card/FoodCard";
+import { Link } from "react-router-dom";
 import Slider from "react-slick";
+import FoodCard from "../food-card/FoodCard";
 
 class FoodsApi {
     constructor () {
@@ -66,7 +67,7 @@ const Carousel = ( {strCategory} ) => {
 
     return (
         <div>
-            <h2>{strCategory}</h2>
+            <h2><Link to={`./../foods-list/${strCategory}`}>{strCategory}</Link></h2>
             <Slider {...settings}>
                 {foods.map(food => <FoodCard key={food.idMeal} {...food} />)}
             </Slider>
