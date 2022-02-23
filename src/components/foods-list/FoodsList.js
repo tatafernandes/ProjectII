@@ -8,12 +8,12 @@ class FoodsApi {
     constructor () {
         this.api = axios.create({ baseURL: "https://www.themealdb.com/api/json/v1/1" });
     };
-    getDessert = async () => {
+    getByCategory = async category => {
         try {
-            const { data: { meals } } = await this.api.get("/filter.php?c=Dessert");
+            const { data: { meals } } = await this.api.get(`/filter.php?c=${category}`);
             return meals;
-        } catch {
-            throw new Error("Cannot Fetch Dessert");
+        } catch (error) {
+            throw new Error(`Cannot Fetch ${category} => ${error}`);
         };
     };
     getMainCourse = async () => {
@@ -46,10 +46,8 @@ class FoodsApi {
         switch (id) {
             case "main-course":
                 return this.getMainCourse();;
-            case "dessert":
-                return this.getDessert();
             default:
-                console.log("Wrong pathname");
+                return this.getByCategory(id);
         };
     };
 };

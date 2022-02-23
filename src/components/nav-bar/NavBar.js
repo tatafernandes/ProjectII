@@ -7,7 +7,8 @@ import "./NavBar.css";
         
         <NavLink to='/'><span> LOGO </span></NavLink>
         <NavLink to='/foods-list/main-course'> Main Course </NavLink>
-        <NavLink to='/foods-list/dessert'> Dessert </NavLink>
+        <NavLink to='/foods-list/Dessert'> Dessert </NavLink>
+        <NavLink to='/food-carousel'> Categories </NavLink>
 </nav> 
 };
 
