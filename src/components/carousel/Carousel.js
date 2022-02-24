@@ -2,28 +2,10 @@ import React, { useState, useEffect } from "react";
 import "./Carousel.css"
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-import axios from "axios";
+import foodsApi from "../../utils/foodsApi";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import FoodCard from "../food-card/FoodCard";
-
-class FoodsApi {
-    constructor () {
-        this.api = axios.create({ baseURL: "https://www.themealdb.com/api/json/v1/1" });
-    }
-
-    getByCategory = async category => {
-        try {
-            const { data: { meals } } = await this.api.get(`/filter.php?c=${category}`)
-
-            return meals;
-        } catch (error) {
-            throw new Error(`Cannot Fetch ${category} => ${error}`);
-        }
-    }
-}
-
-const foodsApi = new FoodsApi();
 
 const Carousel = ( {strCategory} ) => {
     const settings = {

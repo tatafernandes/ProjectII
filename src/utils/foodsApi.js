@@ -13,6 +13,16 @@ class FoodsApi {
             throw new Error(`Cannot Fetch Categories => ${error}`);
         }
     };
+
+    getByCategory = async category => {
+        try {
+            const { data: { meals } } = await this.api.get(`/filter.php?c=${category}`);
+            
+            return meals;
+        } catch (error) {
+            throw new Error(`Cannot Fetch ${category} => ${error}`);
+        };
+    };
 };
 
 const foodsApi = new FoodsApi();
