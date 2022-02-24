@@ -10,7 +10,7 @@ const About = () => {
         </div>
         <div>
             <h2>Vinicius Leite Batista</h2>
-            <p>Brazilia, from Boa Vista - Roraima, civil engineer student and Ironhacker Web Dev to be!</p>
+            <p>Brazilian, from Boa Vista - Roraima, civil engineer student and Ironhacker Web Dev to be!</p>
         </div>
     </div>
     );

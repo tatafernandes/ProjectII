@@ -7,8 +7,6 @@ const Home = () => {
     return (
         <div className='home-js'>
             <h1>Home</h1>
-            <FoodImages />
-            <About />
         </div>
     );
 };
