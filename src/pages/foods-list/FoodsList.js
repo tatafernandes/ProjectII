@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./FoodsList.css";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import FoodCard from "../food-card/FoodCard";
+import FoodCard from "../../components/food-card/FoodCard";
 
 class FoodsApi {
     constructor () {

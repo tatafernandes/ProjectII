@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import "./FoodRecipe.css";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import Ingredients from "../ingredients/Ingredients";
-import Instructions from "../instructions/Instructions";
+import Ingredients from "../../components/ingredients/Ingredients";
+import Instructions from "../../components/instructions/Instructions";
 
 class FoodsApi {
     constructor () {
