@@ -5,7 +5,6 @@ const About = () => {
     return (
         <div className='about-us'>
         <div>
-            <h2>About.js</h2>
             <h2>Thais Fernandes</h2>
             <p>Brazilian, living in Portugal and trying to be a Web Development and a great mom! </p>
         </div>
