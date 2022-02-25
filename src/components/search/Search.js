@@ -3,9 +3,10 @@ import "./Search.css";
 
 const Search = () => {
     return (
-        <p className="control">
-            <input class="input is-warning" type="text" placeholder="Search" />
-        </p>
+        <form className="control">
+            <input className="input is-warning is-rounded" type="text" placeholder="Search" />
+            <button className="button is-small is-rounded is-primary">Search</button>
+        </form>
     );
 };
 
