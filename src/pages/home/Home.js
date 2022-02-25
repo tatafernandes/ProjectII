@@ -1,7 +1,7 @@
 import React from "react";
 import "./Home.css";
-import FoodImages from "../../components/food-images/FoodImages";
-import About from "../../components/about/About";
+//import FoodImages from "../../components/food-images/FoodImages";
+//import About from "../../components/about/About";
 
 const Home = () => {
     return (
