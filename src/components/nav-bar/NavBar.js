@@ -1,15 +1,15 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 import "./NavBar.css";
+import { NavLink } from "react-router-dom";
+import CategoriesButton from "../categories-button/CategoriesButton";
 
- export const NavBar = () => {
-    return <nav className="navbar-style">
-        
-        <NavLink to='/'><span> LOGO </span></NavLink>
-        <NavLink to='/foods-list/main-course'> Main Course </NavLink>
-        <NavLink to='/foods-list/Dessert'> Dessert </NavLink>
-        <NavLink to='/food-carousel'> Categories </NavLink>
-</nav> 
+const NavBar = () => {
+    return (
+        <nav className="navbar-style">
+            <NavLink to='/'><span> LOGO </span></NavLink>
+            <CategoriesButton />
+        </nav>
+    );
 };
 
 export default NavBar;
