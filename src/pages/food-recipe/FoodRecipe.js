@@ -8,18 +8,8 @@ import Instructions from "../../components/instructions/Instructions";
 const FoodRecipe = () => {
     const { idRecipe } = useParams();
     const [recipe, setRecipe] = useState({});
-    const [ingredients, setIngredients] = useState([]);
-    const [instructions, setInstructions] = useState([]);
 
-    useEffect(() => {
-        (async () => {
-            setRecipe(await foodsApi.fetchRecipe(idRecipe))
-            setIngredients(await foodsApi.getIngredients(recipe));
-            console.log(ingredients);
-            setInstructions(await foodsApi.getInstructions(recipe));
-            console.log(instructions)
-        })()
-    }, [idRecipe]);
+    useEffect(() => {(async () => setRecipe(await foodsApi.fetchRecipe(idRecipe)))()}, [idRecipe]);
 
     return (
         <div>
@@ -34,7 +24,7 @@ const FoodRecipe = () => {
                     <Ingredients recipe={recipe} />
                 </div>
             </section>
-            <Instructions instructions={instructions} strYoutube={recipe.strYoutube} />
+            <Instructions recipe={recipe} />
         </div>
     );
 };
