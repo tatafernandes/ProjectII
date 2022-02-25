@@ -8,27 +8,23 @@ import Instructions from "../../components/instructions/Instructions";
 const FoodRecipe = () => {
     const { idRecipe } = useParams();
     const [recipe, setRecipe] = useState({});
-    const [ingredients, setIngredients] = useState([]);
-    const [instructions, setInstructions] = useState([]);
 
-    useEffect(() => {
-        (async () => {
-            setRecipe(await foodsApi.fetchRecipe(idRecipe))
-            setIngredients(await foodsApi.getIngredients(recipe));
-            setInstructions(await foodsApi.getInstructions(recipe));
-        })()
-    }, [idRecipe, recipe]);
+    useEffect(() => (async () => setRecipe(await foodsApi.fetchRecipe(idRecipe)))(), [idRecipe]);
 
     return (
-        <div id="recipe">
-            <section id="section">
-                <img src={recipe.strMealThumb} alt={recipe.strMeal} />
-                <div>
-                    <h1>{recipe.strMeal}</h1>
-                    <Ingredients ingredients={ingredients} />
+        <div>
+            <section className="section">
+                <div className="content" >
+                    <figure>
+                        <img src={recipe.strMealThumb} alt={recipe.strMeal} />
+                    </figure>
+                </div>
+                <div className="content">
+                    <h1 className="title">{recipe.strMeal}</h1>
+                    <Ingredients recipe={recipe} />
                 </div>
             </section>
-            <Instructions instructions={instructions} strYoutube={recipe.strYoutube} />
+            <Instructions recipe={recipe} />
         </div>
     );
 };
