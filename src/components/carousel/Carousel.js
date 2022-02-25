@@ -48,7 +48,7 @@ const Carousel = ( {strCategory} ) => {
     useEffect(() => (async () => setFoods(await foodsApi.getByCategory(strCategory)))(), [strCategory]);
 
     return (
-        <article className="panel is-warning">
+        <article className="panel is-warning" style={{margin: "20px 20px 30px"}}>
             <Link to={`./../foods-list/${strCategory}`}>
                 <p className="panel-heading">
                     {strCategory}

@@ -12,14 +12,12 @@ const App = () => {
   return (
     <>
       <NavBar />
-      <div className='block'>
-        <Routes>
-          <Route exact path="/" element={ <Home /> } />
-          <Route exact path="/foods-list/:idList" element={ <FoodsList /> } />
-          <Route exact path="/food-recipe/:idRecipe" element={ <FoodRecipe /> } />
-          <Route exact path='/food-carousel' element={ <Categories /> } />
-        </Routes>
-      </div>
+      <Routes>
+        <Route exact path="/" element={ <Home /> } />
+        <Route exact path="/foods-list/:idList" element={ <FoodsList /> } />
+        <Route exact path="/food-recipe/:idRecipe" element={ <FoodRecipe /> } />
+        <Route exact path='/food-carousel' element={ <Categories /> } />
+      </Routes>
     </>
   );
 };

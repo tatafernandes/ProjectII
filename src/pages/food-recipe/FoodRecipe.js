@@ -20,11 +20,15 @@ const FoodRecipe = () => {
     }, [idRecipe, recipe]);
 
     return (
-        <div id="recipe">
-            <section id="section">
-                <img src={recipe.strMealThumb} alt={recipe.strMeal} />
-                <div>
-                    <h1>{recipe.strMeal}</h1>
+        <div>
+            <section className="section" style={{display: "flex"}}>
+                <div className="content">
+                    <figure>
+                        <img src={recipe.strMealThumb} alt={recipe.strMeal} />
+                    </figure>
+                </div>
+                <div className="content">
+                    <h1 className="title">{recipe.strMeal}</h1>
                     <Ingredients ingredients={ingredients} />
                 </div>
             </section>
@@ -34,3 +38,20 @@ const FoodRecipe = () => {
 };
 
 export default FoodRecipe;
+/*
+<section class="section">
+  <h1 class="title">Section</h1>
+  <h2 class="subtitle">
+    A simple container to divide your page into <strong>sections</strong>, like the one you're currently reading.
+  </h2>
+</section>
+*/
+/*
+<section id="section">
+                <img src={recipe.strMealThumb} alt={recipe.strMeal} />
+                <div>
+                    <h1>{recipe.strMeal}</h1>
+                    <Ingredients ingredients={ingredients} />
+                </div>
+            </section>
+            */
