@@ -1,0 +1,13 @@
+.section {
+    display: flex;
+}
+
+.title {
+    text-align: center;
+}
+
+@media (max-width: 820px) {
+    .section {
+      flex-direction: column;
+    }
+}
