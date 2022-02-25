@@ -62,12 +62,3 @@ const Carousel = ( {strCategory} ) => {
 };
 
 export default Carousel;
-
-/*
-<div>
-            <h2><Link to={`./../foods-list/${strCategory}`}>{strCategory}</Link></h2>
-            <Slider {...settings}>
-                {foods.map(food => <FoodCard key={food.idMeal} {...food} />)}
-            </Slider>
-        </div>
-        */
