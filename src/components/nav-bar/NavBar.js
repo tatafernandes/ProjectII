@@ -38,10 +38,3 @@ const NavBar = () => {
 };
 
 export default NavBar;
-
-/*
-<nav className="navbar-style">
-            <NavLink to='/'><span> LOGO </span></NavLink>
-            <CategoriesButton />
-        </nav>
-        */
