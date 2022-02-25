@@ -20,7 +20,7 @@ const Instructions = ({ recipe }) => {
         <section className="section content">
             <h2 className="subtitle">Instructions</h2>
             {instructions.map(instruction => <p key={instruction.id}>&emsp;{instruction.paragraph}</p>)}
-            {showVideo && <ReactPlayer url={recipe.strYoutube} controls={true} />}
+            {showVideo && <ReactPlayer url={recipe.strYoutube} controls={true} width="100%" />}
         </section>
     );
 };

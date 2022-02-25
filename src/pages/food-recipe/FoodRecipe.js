@@ -11,8 +11,6 @@ const FoodRecipe = () => {
 
     useEffect(() => (async () => setRecipe(await foodsApi.fetchRecipe(idRecipe)))(), [idRecipe]);
 
-    console.log(recipe);
-
     return (
         <div>
             <section className="section" style={{display: "flex"}}>
