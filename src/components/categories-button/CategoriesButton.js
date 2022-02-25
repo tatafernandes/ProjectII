@@ -16,7 +16,11 @@ const CategoriesButton = () => {
                 </NavLink>
                 <div className="navbar-dropdown is-boxed">
                     {categories.map(category => (
-                        <NavLink key={category.idCategory} to={`/foods-list/${category.strCategory}`} className="navbar-item">
+                        <NavLink
+                            key={category.idCategory}
+                            to={`/foods-list/${category.strCategory}`}
+                            className="navbar-item"
+                        >
                             {category.strCategory}
                         </NavLink>
                     ))}
