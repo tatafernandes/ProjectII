@@ -1,31 +1,27 @@
 import React from "react";
 import "./NavBar.css";
-//import { NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 //import CategoriesButton from "../categories-button/CategoriesButton";
 
 const NavBar = () => {
     return (
-        <nav className="navbar is-info">
+        <nav className="navbar is-warning">
             <div className="navbar-brand">
-                <a className="navbar-item" href="https://bulma.io">
+                <span className="navbar-item">
                     <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28" />
-                </a>
+                </span>
                 <div className="navbar-burger" data-target="navbarExampleTransparentExample">
                     <span></span>
                     <span></span>
                     <span></span>
                 </div>
             </div>
-
+            
             <div id="navbarExampleTransparentExample" className="navbar-menu">
                 <div className="navbar-start">
-                    <a className="navbar-item" href="https://bulma.io/">
-                        Home
-                    </a>
+                    <NavLink to="/" className="navbar-item">Home</NavLink>
                     <div className="navbar-item has-dropdown is-hoverable">
-                        <a className="navbar-link" href="https://bulma.io/documentation/overview/start/">
-                            Docs
-                        </a>
+                        <NavLink to="/food-carousel" className="navbar-link">Categories</NavLink>
                         <div className="navbar-dropdown is-boxed">
                             <a className="navbar-item" href="https://bulma.io/documentation/overview/start/">
                                 Overview
