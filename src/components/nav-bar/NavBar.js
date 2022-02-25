@@ -1,7 +1,7 @@
 import React from "react";
 import "./NavBar.css";
 import { NavLink } from "react-router-dom";
-//import CategoriesButton from "../categories-button/CategoriesButton";
+import CategoriesButton from "../categories-button/CategoriesButton";
 
 const NavBar = () => {
     return (
@@ -16,37 +16,11 @@ const NavBar = () => {
                     <span></span>
                 </div>
             </div>
-            
+
             <div id="navbarExampleTransparentExample" className="navbar-menu">
                 <div className="navbar-start">
                     <NavLink to="/" className="navbar-item">Home</NavLink>
-                    <div className="navbar-item has-dropdown is-hoverable">
-                        <NavLink to="/food-carousel" className="navbar-link">Categories</NavLink>
-                        <div className="navbar-dropdown is-boxed">
-                            <a className="navbar-item" href="https://bulma.io/documentation/overview/start/">
-                                Overview
-                            </a>
-                            <a className="navbar-item" href="https://bulma.io/documentation/overview/modifiers/">
-                                Modifiers
-                            </a>
-                            <a className="navbar-item" href="https://bulma.io/documentation/columns/basics/">
-                                Columns
-                            </a>
-                            <a className="navbar-item" href="https://bulma.io/documentation/layout/container/">
-                                Layout
-                            </a>
-                            <a className="navbar-item" href="https://bulma.io/documentation/form/general/">
-                                Form
-                            </a>
-                            <hr className="navbar-divider" />
-                            <a className="navbar-item" href="https://bulma.io/documentation/elements/box/">
-                                Elements
-                            </a>
-                            <a className="navbar-item is-active" href="https://bulma.io/documentation/components/breadcrumb/">
-                                Components
-                            </a>
-                        </div>
-                    </div>
+                    <CategoriesButton />
                 </div>
 
                 <div className="navbar-end">

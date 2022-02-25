@@ -9,11 +9,25 @@ const CategoriesButton = () => {
     useEffect(() => (async () => setCategories(await foodsApi.getCategories()))(), []);
 
     return (
-        <div className="navbar-start">
+        <div className="navbar-item has-dropdown is-hoverable">
+            <NavLink to="/food-carousel" className="navbar-link">Categories</NavLink>
+            <div className="navbar-dropdown is-boxed">
+                {categories.map(category => (
+                    <NavLink key={category.idCategory} to={`/foods-list/${category.strCategory}`} className="navbar-item">
+                        {category.strCategory}
+                    </NavLink>
+                ))}
+            </div>
+        </div>
+    );
+};
+
+export default CategoriesButton;
+
+/*
+<div className="navbar-start">
             <div className="navbar-item has-dropdown is-hoverable">
-                <NavLink to="/food-carousel" className="navbar-link">
-                    Categories
-                </NavLink>
+                <NavLink to="/food-carousel" className="navbar-link">Categories</NavLink>
                 <div className="navbar-dropdown is-boxed">
                     {categories.map(category => (
                         <NavLink
@@ -27,7 +41,4 @@ const CategoriesButton = () => {
                 </div>
             </div>
         </div>
-    );
-};
-
-export default CategoriesButton;
+        */
