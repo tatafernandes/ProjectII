@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import "./Search.css";
+import { Link } from "react-router-dom";
 
 const Search = () => {
     const [search, setSearch] = useState("");
 
     return (
-        <form className="control">
+        <div className="control">
             <input
                 className="input is-warning is-rounded"
                 type="text"
@@ -13,8 +14,10 @@ const Search = () => {
                 value={search}
                 onChange={e => setSearch(e.target.value)}
             />
-            <button className="button is-small is-rounded is-primary">Search</button>
-        </form>
+            <Link to={`/foods-list/SearchResult=${search}`}>
+                <button className="button is-small is-rounded is-primary">Search</button>
+            </Link>
+        </div>
     );
 };
 
