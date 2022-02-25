@@ -38,7 +38,7 @@ class FoodsApi {
         try {
             const ingredients = [];
             for (let i = 1; i <= 20; i += 1) {
-                const measure = await meal[`strMeasure${i}`];
+                const measure = await meal[`strMeasure${i}`].toLowerCase();
                 const ingredient = await meal[`strIngredient${i}`].toLowerCase();
                 const notEmpty = (await measure !== "") && (await ingredient !== "");
                 const notNull = (await measure !== null) && (await ingredient !== null);

@@ -5,14 +5,22 @@ import ReactPlayer from "react-player/youtube";
 
 const Instructions = ({ recipe }) => {
     const [instructions, setInstructions] = useState([]);
+    const [showVideo, setShowVideo] = useState(false);
 
-    useEffect(() => (async () => setInstructions(await foodsApi.getInstructions(recipe)))(), [recipe]);
+    useEffect(() => {
+        (async () => {
+            setInstructions(await foodsApi.getInstructions(recipe));
+            if (await recipe.strYoutube.length > 0) {
+                setShowVideo(true);
+            };
+        })()
+    }, [recipe]);
 
     return (
         <section className="section content">
             <h2 className="subtitle">Instructions</h2>
             {instructions.map(instruction => <p key={instruction.id}>&emsp;{instruction.paragraph}</p>)}
-            <ReactPlayer url={recipe.strYoutube} controls={true} />
+            {showVideo && <ReactPlayer url={recipe.strYoutube} controls={true} />}
         </section>
     );
 };

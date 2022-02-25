@@ -9,7 +9,9 @@ const FoodRecipe = () => {
     const { idRecipe } = useParams();
     const [recipe, setRecipe] = useState({});
 
-    useEffect(() => {(async () => setRecipe(await foodsApi.fetchRecipe(idRecipe)))()}, [idRecipe]);
+    useEffect(() => (async () => setRecipe(await foodsApi.fetchRecipe(idRecipe)))(), [idRecipe]);
+
+    console.log(recipe);
 
     return (
         <div>
