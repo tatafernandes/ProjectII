@@ -15,9 +15,11 @@ const FoodRecipe = () => {
         (async () => {
             setRecipe(await foodsApi.fetchRecipe(idRecipe))
             setIngredients(await foodsApi.getIngredients(recipe));
+            console.log(ingredients);
             setInstructions(await foodsApi.getInstructions(recipe));
+            console.log(instructions)
         })()
-    }, [idRecipe, recipe]);
+    }, [idRecipe]);
 
     return (
         <div>
@@ -29,7 +31,7 @@ const FoodRecipe = () => {
                 </div>
                 <div className="content">
                     <h1 className="title">{recipe.strMeal}</h1>
-                    <Ingredients ingredients={ingredients} />
+                    <Ingredients recipe={recipe} />
                 </div>
             </section>
             <Instructions instructions={instructions} strYoutube={recipe.strYoutube} />
