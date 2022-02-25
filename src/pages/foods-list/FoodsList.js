@@ -8,7 +8,7 @@ const FoodsList = () => {
     const { idList } = useParams();
     const [foodCards, setFoodCards] = useState([]);
     
-    useEffect(() => (async () => setFoodCards(await foodsApi.getByCategory(idList)))(), [idList]);
+    useEffect(() => (async () => setFoodCards(await foodsApi.getFoodsList(idList)))(), [idList]);
 
     return (
         <div id="foodsList">

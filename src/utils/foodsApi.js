@@ -24,6 +24,15 @@ class FoodsApi {
         };
     };
 
+    getFoodsList = async link => {
+        if (link.slice(0, 13) === "SearchResult=") {
+            console.log(link.slice(13));
+        } else {
+            const category = await this.getByCategory(link);
+            return category;
+        };
+    };
+
     fetchRecipe = async id => {
         try {
             const { data: { meals } } = await this.api.get(`/lookup.php?i=${id}`);
