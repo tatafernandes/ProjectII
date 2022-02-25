@@ -48,13 +48,26 @@ const Carousel = ( {strCategory} ) => {
     useEffect(() => (async () => setFoods(await foodsApi.getByCategory(strCategory)))(), [strCategory]);
 
     return (
-        <div>
+        <article className="panel is-warning">
+            <Link to={`./../foods-list/${strCategory}`}>
+                <p className="panel-heading">
+                    {strCategory}
+                </p>
+            </Link>
+            <Slider {...settings}>
+                {foods.map(food => <FoodCard key={food.idMeal} {...food} />)}
+            </Slider>
+        </article>
+    );
+};
+
+export default Carousel;
+
+/*
+<div>
             <h2><Link to={`./../foods-list/${strCategory}`}>{strCategory}</Link></h2>
             <Slider {...settings}>
                 {foods.map(food => <FoodCard key={food.idMeal} {...food} />)}
             </Slider>
         </div>
-    );
-};
-
-export default Carousel;
+        */
