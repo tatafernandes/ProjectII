@@ -17,6 +17,7 @@ const FoodRecipe = () => {
                 <div className="content" >
                     <figure>
                         <img src={recipe.strMealThumb} alt={recipe.strMeal} />
+                        <figcaption>{recipe.strCategory}</figcaption>
                     </figure>
                 </div>
                 <div className="content">
