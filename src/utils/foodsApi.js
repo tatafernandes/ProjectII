@@ -60,11 +60,7 @@ class FoodsApi {
                 allMeals.push(...category);
             };
 
-            console.log(allMeals)
-
             const filtered = allMeals.filter(meal => meal.strMeal.toLowerCase().includes(name.toLowerCase()));
-
-            console.log(filtered);
 
             return filtered;
         } catch (error) {

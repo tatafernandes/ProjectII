@@ -12,10 +12,16 @@ const FoodsList = () => {
 
     return (
         <div>
-            {(idList.slice(0, 13) === "SearchResult=") && (
+            {(idList.slice(0, 13) === "SearchResult=") ? (
                 <div className="container is-widescreen">
                     <div className="notification is-white-ter">
                         Search Results for "{idList.slice(13)}"
+                    </div>
+                </div>
+            ) : (
+                <div className="container is-widescreen">
+                    <div className="notification is-warning">
+                        <h1 className="title">{idList}</h1>
                     </div>
                 </div>
             )}
