@@ -2,6 +2,7 @@ import React from "react";
 import "./NavBar.css";
 import { NavLink } from "react-router-dom";
 import CategoriesButton from "../categories-button/CategoriesButton";
+import Search from "../search/Search";
 
 const NavBar = () => {
     return (
@@ -26,9 +27,7 @@ const NavBar = () => {
                 <div className="navbar-end">
                     <div className="navbar-item">
                         <div className="field is-grouped">
-                            <p className="control">
-                                <input class="input is-warning" type="text" placeholder="Warning input" />
-                            </p>
+                            <Search />
                         </div>
                     </div>
                 </div>

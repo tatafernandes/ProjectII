@@ -8,11 +8,20 @@ const FoodsList = () => {
     const { idList } = useParams();
     const [foodCards, setFoodCards] = useState([]);
     
-    useEffect(() => (async () => setFoodCards(await foodsApi.getByCategory(idList)))(), [idList]);
+    useEffect(() => (async () => setFoodCards(await foodsApi.getFoodsList(idList)))(), [idList]);
 
     return (
-        <div id="foodsList">
-            {foodCards.map(foodCard => <FoodCard key={foodCard.idMeal} {...foodCard} />)}
+        <div>
+            {(idList.slice(0, 13) === "SearchResult=") && (
+                <div className="container is-widescreen">
+                    <div className="notification is-white-ter">
+                        Search Results for "{idList.slice(13)}"
+                    </div>
+                </div>
+            )}
+            <div id="foodsList">
+                {foodCards.map(foodCard => <FoodCard key={foodCard.idMeal} {...foodCard} />)}
+            </div>
         </div>
     );
 };

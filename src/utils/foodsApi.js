@@ -20,7 +20,42 @@ class FoodsApi {
             
             return meals;
         } catch (error) {
-            throw new Error(`Cannot Fetch ${await category.strCategory} => ${error}`);
+            throw new Error(`Cannot Fetch category => ${error}`);
+        };
+    };
+
+    filteredMeals = async name => {
+        try {
+            const allCategories = await this.getCategories();
+
+            const allMeals = [];
+
+            for (let i = 0; i < allCategories.length; i += 1) {
+                const category = await this.getByCategory(allCategories[i].strCategory);
+                allMeals.push(...category);
+            };
+
+            console.log(allMeals)
+
+            const filtered = allMeals.filter(meal => meal.strMeal.toLowerCase().includes(name.toLowerCase()));
+
+            console.log(filtered);
+
+            return filtered;
+        } catch (error) {
+            throw new Error(`Cannot Fetch filtered meals => ${error}`);
+        }
+    };
+
+    getFoodsList = async link => {
+        if (link.slice(0, 13) === "SearchResult=") {
+            console.log(link.slice(13));
+            //console.log(await this.filteredMeals());
+            const filtered = await this.filteredMeals(link.slice(13));
+            return filtered;
+        } else {
+            const category = await this.getByCategory(link);
+            return category;
         };
     };
 
