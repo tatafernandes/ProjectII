@@ -11,7 +11,7 @@ const About = () => {
             <div className="content">
                 <h1 className="title">About us</h1>
                 <p>
-                    The ThaVi foods app was created by two aspiring Web Developers currently studing at the Ironhack's
+                    The ThaVi foods app was created by two aspiring Web Developers currently studying at the Ironhack's
                     Bootcamp. This app provide its users with approximately 283 incredible recipes using the "The Meal DB"
                     (https://www.themealdb.com/api.php) API.
                 </p>
