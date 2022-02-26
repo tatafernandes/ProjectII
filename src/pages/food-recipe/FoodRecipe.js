@@ -13,7 +13,7 @@ const FoodRecipe = () => {
 
     return (
         <div>
-            <section className="section">
+            <section id="section">
                 <div className="content" >
                     <figure>
                         <img src={recipe.strMealThumb} alt={recipe.strMeal} />
@@ -25,7 +25,9 @@ const FoodRecipe = () => {
                     <Ingredients recipe={recipe} />
                 </div>
             </section>
-            <Instructions recipe={recipe} />
+            <section>
+                <Instructions recipe={recipe} />
+            </section>
         </div>
     );
 };
