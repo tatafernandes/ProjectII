@@ -21,7 +21,7 @@ const NavBar = () => {
                 </div>
             </div>
 
-            <div id="navbarExampleTransparentExample" className="navbar-menu">
+            <div id="navbarExampleTransparentExample" className="navbar-menu navbar is-warning">
                 <div className="navbar-start">
                     <NavLink to="/" className="navbar-item">Home</NavLink>
                     <CategoriesButton />
