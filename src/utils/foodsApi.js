@@ -74,8 +74,6 @@ class FoodsApi {
 
     getFoodsList = async link => {
         if (link.slice(0, 13) === "SearchResult=") {
-            console.log(link.slice(13));
-            //console.log(await this.filteredMeals());
             const filtered = await this.filteredMeals(link.slice(13));
             return filtered;
         } else {
