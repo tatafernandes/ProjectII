@@ -24,6 +24,21 @@ class FoodsApi {
         };
     };
 
+    get8RandomMeals = async () => {
+        try {
+            const randomMeals = [];
+
+            for (let i = 0; i < 8; i += 1) {
+                const { data: { meals } } = await this.api.get("/random.php");
+                randomMeals[i] = meals[0];
+            }
+
+            return randomMeals;
+        } catch (error) {
+            throw new Error(`Cannot Fetch random meals => ${error}`);
+        }
+    };
+
     filteredMeals = async name => {
         try {
             const allCategories = await this.getCategories();
