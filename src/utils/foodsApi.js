@@ -24,7 +24,7 @@ class FoodsApi {
         };
     };
 
-    filteredMeals = async () => {
+    filteredMeals = async name => {
         try {
             const allCategories = await this.getCategories();
 
@@ -35,7 +35,13 @@ class FoodsApi {
                 allMeals.push(...category);
             };
 
-            return allMeals;
+            console.log(allMeals)
+
+            const filtered = allMeals.filter(meal => meal.strMeal.toLowerCase().includes(name.toLowerCase()));
+
+            console.log(filtered);
+
+            return filtered;
         } catch (error) {
             throw new Error(`Cannot Fetch filtered meals => ${error}`);
         }
@@ -44,7 +50,9 @@ class FoodsApi {
     getFoodsList = async link => {
         if (link.slice(0, 13) === "SearchResult=") {
             console.log(link.slice(13));
-            console.log(await this.filteredMeals())
+            //console.log(await this.filteredMeals());
+            const filtered = await this.filteredMeals(link.slice(13));
+            return filtered;
         } else {
             const category = await this.getByCategory(link);
             return category;
