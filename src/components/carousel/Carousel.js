@@ -3,7 +3,7 @@ import "./Carousel.css"
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import foodsApi from "../../utils/foodsApi";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Slider from "react-slick";
 import FoodCard from "../food-card/FoodCard";
 
@@ -44,16 +44,21 @@ const Carousel = ({ category }) => {
     };
 
     const [foods, setFoods] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => (async () => setFoods(await foodsApi.getCarousel(category)))(), [category]);
 
+    const handleClick = () => {
+        if (category !== "RandomMeals") {
+            navigate(`./../foods-list/${category}`);
+        };
+    };
+
     return (
         <article className="panel is-warning" style={{margin: "20px 20px 30px"}}>
-            <Link to={`./../foods-list/${category}`}>
-                <p className="panel-heading">
-                    {category}
-                </p>
-            </Link>
+            <p className="panel-heading" onClick={handleClick}>
+                {category}
+            </p>
             <Slider {...settings}>
                 {foods.map(food => <FoodCard key={food.idMeal} {...food} />)}
             </Slider>
