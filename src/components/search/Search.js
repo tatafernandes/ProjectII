@@ -1,9 +1,17 @@
 import React, { useState } from "react";
 import "./Search.css";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Search = () => {
     const [search, setSearch] = useState("");
+    const navigate = useNavigate();
+
+    const hancleSearch = () => {
+        if (search !== "") {
+            navigate(`/foods-list/SearchResult=${search}`);
+            setSearch("");
+        };
+    };
 
     return (
         <div className="control">
@@ -14,9 +22,7 @@ const Search = () => {
                 value={search}
                 onChange={e => setSearch(e.target.value)}
             />
-            <Link to={`/foods-list/SearchResult=${search}`}>
-                <button className="button is-small is-rounded is-primary">Search</button>
-            </Link>
+            <button className="button is-small is-rounded is-primary" onClick={hancleSearch}>Search</button>
         </div>
     );
 };
