@@ -1,6 +1,8 @@
 #about-us {
     display: flex;
-    margin: 0 20px;
+    margin: 0 20px 8px;
+    background-color: #f4d147;
+    border-radius: 8px;
 }
 
 .content {
@@ -9,4 +11,8 @@
 
 .content > figcaption {
     text-align: center;
+}
+
+.table {
+    background-color: #c49b07;
 }
