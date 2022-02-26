@@ -40,12 +40,12 @@ class FoodsApi {
     };
 
     getCarousel = async category => {
-        if (category === "RandomMeals") {
+        if (await category === "RandomMeals") {
             const randomMeals = await this.get8RandomMeals();
             return randomMeals;
         } else {
-            const category = await this.getByCategory(category);
-            return category;
+            const meals = await this.getByCategory(category);
+            return meals;
         };
     };
 

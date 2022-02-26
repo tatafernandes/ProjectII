@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import FoodCard from "../food-card/FoodCard";
 
-const Carousel = ( {category} ) => {
+const Carousel = ({ category }) => {
     const settings = {
         dots: true,
         infinite: false,
@@ -45,7 +45,7 @@ const Carousel = ( {category} ) => {
 
     const [foods, setFoods] = useState([]);
 
-    useEffect(() => (async () => setFoods(await foodsApi.getByCategory(category)))(), [category]);
+    useEffect(() => (async () => setFoods(await foodsApi.getCarousel(category)))(), [category]);
 
     return (
         <article className="panel is-warning" style={{margin: "20px 20px 30px"}}>
