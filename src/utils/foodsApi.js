@@ -24,6 +24,31 @@ class FoodsApi {
         };
     };
 
+    get8RandomMeals = async () => {
+        try {
+            const randomMeals = [];
+
+            for (let i = 0; i < 8; i += 1) {
+                const { data: { meals } } = await this.api.get("/random.php");
+                randomMeals[i] = meals[0];
+            }
+
+            return randomMeals;
+        } catch (error) {
+            throw new Error(`Cannot Fetch random meals => ${error}`);
+        }
+    };
+
+    getCarousel = async category => {
+        if (await category === "RandomMeals") {
+            const randomMeals = await this.get8RandomMeals();
+            return randomMeals;
+        } else {
+            const meals = await this.getByCategory(category);
+            return meals;
+        };
+    };
+
     filteredMeals = async name => {
         try {
             const allCategories = await this.getCategories();
@@ -35,11 +60,7 @@ class FoodsApi {
                 allMeals.push(...category);
             };
 
-            console.log(allMeals)
-
             const filtered = allMeals.filter(meal => meal.strMeal.toLowerCase().includes(name.toLowerCase()));
-
-            console.log(filtered);
 
             return filtered;
         } catch (error) {
@@ -49,8 +70,6 @@ class FoodsApi {
 
     getFoodsList = async link => {
         if (link.slice(0, 13) === "SearchResult=") {
-            console.log(link.slice(13));
-            //console.log(await this.filteredMeals());
             const filtered = await this.filteredMeals(link.slice(13));
             return filtered;
         } else {
@@ -73,13 +92,13 @@ class FoodsApi {
         try {
             const ingredients = [];
             for (let i = 1; i <= 20; i += 1) {
-                const measure = await meal[`strMeasure${i}`].toLowerCase();
-                const ingredient = await meal[`strIngredient${i}`].toLowerCase();
+                const measure = await meal[`strMeasure${i}`];
+                const ingredient = await meal[`strIngredient${i}`];
                 const notEmpty = (await measure !== "") && (await ingredient !== "");
                 const notNull = (await measure !== null) && (await ingredient !== null);
 
                 if (notEmpty && notNull) {
-                    ingredients.push({id: i, text: `${await measure} ${await ingredient}`})
+                    ingredients.push({id: i, text: `${await measure.toLowerCase()} ${await ingredient.toLowerCase()}`})
                 };
             };
 

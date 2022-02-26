@@ -3,13 +3,16 @@ import "./NavBar.css";
 import { NavLink } from "react-router-dom";
 import CategoriesButton from "../categories-button/CategoriesButton";
 import Search from "../search/Search";
+import logo from "../../utils/Thavi.png";
 
 const NavBar = () => {
     return (
         <nav className="navbar is-warning">
             <div className="navbar-brand">
                 <span className="navbar-item">
-                    <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28" />
+                    <figure className="image is-32x32">
+                        <img className="is-rounded" src={logo} alt="logo" />
+                    </figure>
                 </span>
                 <div className="navbar-burger" data-target="navbarExampleTransparentExample">
                     <span></span>
@@ -18,7 +21,7 @@ const NavBar = () => {
                 </div>
             </div>
 
-            <div id="navbarExampleTransparentExample" className="navbar-menu">
+            <div id="navbarExampleTransparentExample" className="navbar-menu navbar is-warning">
                 <div className="navbar-start">
                     <NavLink to="/" className="navbar-item">Home</NavLink>
                     <CategoriesButton />
